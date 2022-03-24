@@ -1,51 +1,134 @@
 <html lang="en" dir="ltr">
-  <head>
-    <title>MDirectory</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="lib/Account.js"></script>
-    <script src="lib/Appointment.js"></script>
-    <script src="lib/Database.js"></script>
-    <script src="lib/DoctorAccount.js"></script>
-    <script src="lib/Name.js"></script>
-    <script src="lib/PatientAccount.js"></script>
-    <script src="lib/Symptom.js"></script>
-    <script src="lib/Utility.js"></script>
-    <script src="scripts/main.js"></script>
-  </head>
-  <body>
-    <div class="mobileScreen absCentered" id="screenParent"> <!--delete during publishing-->
-      <div class="startScreen" id="startScreen">
-        <div class="largeSection startSearch bg_tealsteel" onclick="triggerScreen('homeScreen')">
-          <img src="resources/media/stethoscope.png" alt="doctorIcon">
-          <div class="textParent">
-            <h1>Search for a doctor.</h1>
-            <p>Search for doctors near you, by symptoms.</p>
+<head>
+	<title>MDirectory</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="lib/Account.js"></script>
+	<script src="lib/Appointment.js"></script>
+	<script src="lib/Database.js"></script>
+	<script src="lib/Day.js"></script>
+	<script src="lib/DoctorAccount.js"></script>
+	<script src="lib/Name.js"></script>
+	<script src="lib/PatientAccount.js"></script>
+	<script src="lib/Symptom.js"></script>
+	<script src="lib/Utility.js"></script>
+	<script src="main.js"></script>
+</head>
+<body>
+	<div class="mobileScreen absCentered" id="screenParent"> <!--delete during publishing-->
+		<div class="startScreen" id="startScreen">
+			<div class="largeSection startSearch bg_tealsteel" onclick="triggerScreen('homeScreen')">
+				<img src="images/stethoscope.png" alt="doctorIcon">
+				<div class="textParent">
+					<h1 class="clickable">Search for a doctor.</h1>
+					<p>Search for doctors near you, by symptoms.</p>
+				</div>
+			</div>
+			<div class="largeSection startLogin" onclick="triggerScreen('registrationScreen')">
+				<div class="textParent">
+          <h1 class="text_bluecg clickable">Login or register.</h1>
+					<p>Login/register as a patient to make appointments, or get verified as a doctor to make appointments.</p>
+				</div>
+				<img src="images/injection.png" alt="doctorIcon">
+			</div>
+			<div class="smallSection logoBar bg_tealsteel">
+				<img src="images/logo.png" alt="MDLogo">
+				<h3>MDirectory</h3>
+			</div>
+		</div>
+		<div class="homeScreen" id="homeScreen">
+			<div class="headbar bg_tealsteel">
+				<img src="images/logo.png" alt="MDLogo">
+				<h3>MDirectory</h3>
+			</div>
+			<div class="searchBy">
+				<div class="specialization">
+					<img src="images/mike.png" alt="Flask">
+					<h2>Search by Specialization</h2>
+				</div>
+				<div class="symptoms">
+					<img src="images/mike.png" alt="Pills">
+					<h2>Search by Symptoms</h2>
+				</div>
+			</div>
+			<div class="recommendedBar">
+				<h3>Recommended Doctors Near You...</h3>
+			</div>
+			<div class="recommendation">
+				<div>
+					<div>
+						<h1>Doctor 1</h1>
+						<img src="images/mike.png" alt="Crown">
+					</div>
+					<h2>Specialization 1</h2>
+					<hp>Description 1</hp>
+				</div>
+			</div>
+			<div class="recommendation">
+				<div>
+					<h1>Doctor 2</h1>
+					<h2>Specialization 2</h2>
+					<hp>Description 2</hp>
+				</div>
+			</div>
+		</div>
+		<div class="doctorScreen" id="doctorScreen">
+
+		</div>
+		<div class="registrationScreen" id="registrationScreen">
+			<div class="smallSection logoBar bg_tealsteel">
+				<img src="images/logo.png" alt="MDLogo">
+				<h3>MDirectory</h3>
+			</div>
+      <div class="smallSection loginOptions">
+        <div>
+          <h3 class="clickable">Login as Patient</h3>
+        </div>
+        <div>
+          <h3 class="clickable">Login as Doctor</h3>
+        </div>
+      </div>
+      <div class="loginInfos"> 
+        <div id="loginInfoPatient">
+          <p>USERNAME</p>
+          <input type="text" placeholder="Username">
+          <p>PASSWORD</p>
+          <input type="password" placeholder="Password">
+          <div class="extraInfo">
+            <p>FIRST NAME</p>
+            <input type="text" placeholder="First Name">
+            <p>LAST NAME</p>
+            <input type="text" placeholder="Last Name">  
+            <p>EMAIL</p>
+            <input type="text" placeholder="Email">
           </div>
         </div>
-        <div class="largeSection startLogin" onclick="triggerScreen('registrationScreen')">
-          <div class="textParent">
-            <h1>Login or register.</h1>
-            <p>Login/register as a patient to make appointments, or get verified as a doctor to make appointments.</p>
-          </div>
-          <img src="resources/media/injection.png" alt="doctorIcon">
+        <div class="hidden" id="loginInfoDoctor">
+          <p>USERNAME</p>
+          <input type="text" placeholder="Username">
+          <p>PASSWORD</p>
+          <input type="password" placeholder="Password">
+          <p>FIRST NAME</p>
+          <input type="text" placeholder="First Name">
+          <p>LAST NAME</p>
+          <input type="text" placeholder="Last Name">
+          <p>SPECIALIZATION</p>
+          <input type="text" placeholder="Specialization">
+          <p>HOSPITAL/CLINIC ADDRESS</p>
+          <input type="text" placeholder="Address">
+          <p>HOSPITAL/CLINIC HOTLINE</p>
+          <input type="text" placeholder="Hotline">
+          <p>EMAIL</p>
+          <input type="text" placeholder="Email">
         </div>
-        <div class="smallSection startLogo bg_tealsteel">
-          <img src="resources/media/logo.png" alt="MDLogo">
-          <h3>MDirectory</h3>
-        </div>
       </div>
-      <div class="homeScreen" id="homeScreen">
-        <p>homescreen</p>
+      <div class="loginInfoButtons">
+        <button onclick="attemptLogin()">Login</button>
+        <button onclick="attemptRegister()">Register</button>
       </div>
-      <div class="registrationScreen" id="registrationScreen">
-        <p>registrationscreen</p>
-      </div>
-      <div class="doctorScreen" id="doctorScreen">
-        
-      </div>
-      <div class="homeScreen" id="amogus">
-        
-      </div>
-    </div>
-  </body>
+		</div>
+		<div class="requestScreen" id="requestScreen">
+
+		</div>
+	</div>
+</body>
 </html>
