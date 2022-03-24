@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo&family=Cinzel&family=Cinzel+Decorative&display=swap');
 :root {
   --bluegreen:#99d5c9;
   --tealsteel:#6c969D;
@@ -7,4 +8,23 @@
 body {
   padding:0;
   margin:0;
+  width:450px;
+  height:900px;
+  border:2px solid black;
+}
+/*general classes*/
+.fullscreener {
+  width:100%;
+  height:100%;
+}
+/*specific classes */
+.startScreen {
+  display:flex;
+  flex-direction:column;
+}
+.startScreen > .largeSection {
+
+}
+.startScreen > .smallSection {
+
 }
