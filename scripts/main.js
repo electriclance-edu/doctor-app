@@ -1,14 +1,15 @@
 const database = new Database();
 
-database.patients.push(new PatientAccount({
-    name: {
-        given: "Mozzarella",
-        middle: "Lactose",
-        sur: "Chedddarson",
-    },
-    username: "MCheddarson",
-    password: "Ch33seH3nt4!",
-    emailAddress: "mcheddarson@cheese.com",
-}));
+function triggerScreen(screenId) {
+  const screens = document.getElementById("screenParent").children;
+  console.log(screens);
+  
+  for (screen in screens) {
+    console.log(screen);
+    screen.style.opacity = 0;
+    screen.style.pointerEvents = "none";
+  }
 
-console.log(database.searchPatientByID("1").name.givenFirst());
+  document.getElementById(screenId).style.opacity = 1;
+  document.getElementById(screenId).style.pointerEvents = "all";
+}

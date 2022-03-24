@@ -2,36 +2,49 @@
   <head>
     <title>MDirectory</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="lib/Utility.js"></script>
-    <script src="lib/Database.js"></script>
-    <script src="lib/Symptom.js"></script>
-    <script src="lib/Appointment.js"></script>
     <script src="lib/Account.js"></script>
+    <script src="lib/Appointment.js"></script>
+    <script src="lib/Database.js"></script>
     <script src="lib/DoctorAccount.js"></script>
     <script src="lib/Name.js"></script>
     <script src="lib/PatientAccount.js"></script>
-    <script src="main.js"></script>
+    <script src="lib/Symptom.js"></script>
+    <script src="lib/Utility.js"></script>
+    <script src="scripts/main.js"></script>
   </head>
   <body>
-    <div class="mobileScreen absCentered"> <!--delete during publishing-->
+    <div class="mobileScreen absCentered" id="screenParent"> <!--delete during publishing-->
       <div class="startScreen" id="startScreen">
-        <div class="largeSection startSearch">
+        <div class="largeSection startSearch bg_tealsteel" onclick="triggerScreen('homeScreen')">
           <img src="resources/media/stethoscope.png" alt="doctorIcon">
           <div class="textParent">
             <h1>Search for a doctor.</h1>
             <p>Search for doctors near you, by symptoms.</p>
           </div>
         </div>
-        <div class="largeSection startLogin">
-          <img src="resources/media/injection.png" alt="doctorIcon">
+        <div class="largeSection startLogin" onclick="triggerScreen('registrationScreen')">
           <div class="textParent">
             <h1>Login or register.</h1>
             <p>Login/register as a patient to make appointments, or get verified as a doctor to make appointments.</p>
           </div>
+          <img src="resources/media/injection.png" alt="doctorIcon">
         </div>
-        <div class="smallSection startLogo">
+        <div class="smallSection startLogo bg_tealsteel">
           <img src="resources/media/logo.png" alt="MDLogo">
+          <h3>MDirectory</h3>
         </div>
+      </div>
+      <div class="homeScreen" id="homeScreen">
+        <p>homescreen</p>
+      </div>
+      <div class="registrationScreen" id="registrationScreen">
+        <p>registrationscreen</p>
+      </div>
+      <div class="doctorScreen" id="doctorScreen">
+        
+      </div>
+      <div class="homeScreen" id="amogus">
+        
       </div>
     </div>
   </body>
