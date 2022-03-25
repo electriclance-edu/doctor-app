@@ -20,6 +20,8 @@ h1, h2, h3, h4, h5, h6, button {
 }
 p, input {
 	font-family: 'Arimo', sans-serif;
+}
+p {
 	margin: 0;
 }
 input {
@@ -69,6 +71,7 @@ div {
 	color: white;
 }
 .logoBar img {
+  margin-left:10px;
 	height: 100%;
 }
 .logoBar h3 {
@@ -115,21 +118,10 @@ div {
 	padding: 5px;
 	display: flex;
 	align-items: center;
-	width: calc(var(--width) * 0.995);
-}
-.homeScreen > .headbar {
-	color: white;
-}
-.homeScreen > .headbar > img {
-	height: calc(var(--height) * (0.05));
-	padding-top: 5px;
-	padding-bottom: 5px;
-}
-.homeScreen > .headbar > h3 {
-	padding-left: 5px;
+	width:100%;
 }
 .homeScreen > .searchBy > div {
-	width: calc(var(--width) * 0.995 / 2);
+	width:50%;
 	text-align: center;
 	display: block;
 	justify-content: center;
@@ -145,14 +137,18 @@ div {
 	color: white;
 	justify-content: center;
 }
+.homeScreen > .recommendation {
+  display:flex;
+  justify-content:center;
+}
 .homeScreen > .recommendation > div {
-	margin: 5%;
 	background-color: var(--hipblue);
 	color: white;
 	display: block;
 	width: calc(var(--width) * 0.9);
-	border-radius: 15%;
-	padding: 5%
+  border-radius:10px;
+	margin:10px 0;
+	padding:10px;
 }
 .homeScreen > .recommendation > div > div {
 	display: flex;
@@ -177,18 +173,22 @@ div {
 	height: calc(var(--height) * (0.70));
   overflow-x:hidden;
   overflow-y:scroll;
+  position:relative;
 }
 .registrationScreen .loginInfos > div {
   padding:0 20px 10px 20px;
+  position:absolute;
+  top:0;
+  left:0;
 }
-.registrationScreen .loginInfos > div p {
+.registrationScreen .loginInfos > div p,.label {
   color:var(--tealsteel);
   margin-top:20px;
   margin-left:5px;
   font-size:12px;
   font-weight:bold;
 }
-.registrationScreen .loginInfos > div input {
+input {
   width:100%;
   border-top:0;
   border-left:0;
@@ -205,9 +205,11 @@ div {
 	height: calc(var(--height) * (0.10));
   padding:5px;
   position:sticky;
+  display:flex;
   justify-content:center;
+  align-items:center;
 }
-.registrationScreen .loginInfoButtons button {
+.registrationScreen .loginInfoButtons button, button {
   padding:5px 20px;
   background-color:var(--tealsteel);
   color:white;
@@ -216,4 +218,33 @@ div {
   font-size:20px;
   margin-left:3px;
   margin-right:3px;
+}
+
+/* doctor screen */
+.doctorScreen > .appointmentBar {
+	background-color: var(--tealsteel);
+	color: white;
+	justify-content: center;
+}
+.doctorScreen > .appointment {
+  display:flex;
+  justify-content:center;
+}
+.doctorScreen > .appointment > div {
+	background-color: var(--hipblue);
+	color: white;
+	display: block;
+	width: calc(var(--width) * 0.9);
+  border-radius:10px;
+	margin:10px 0;
+	padding:10px;
+}
+.doctorScreen > .appointment > div > div {
+	display: flex;
+}
+
+.centerer {
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }

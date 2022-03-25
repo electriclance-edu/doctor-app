@@ -33,101 +33,195 @@
 			<div class="smallSection logoBar bg_tealsteel">
 				<img src="images/logo.png" alt="MDLogo">
 				<h3>MDirectory</h3>
+				<div onclick="triggerScreen('panicScreen')">
+					<img src="images/alert.png" alt="Panic">
+				</div>
 			</div>
 		</div>
 		<div class="homeScreen" id="homeScreen">
-			<div class="headbar bg_tealsteel">
+			<div class="smallSection logoBar bg_tealsteel">
 				<img src="images/logo.png" alt="MDLogo">
 				<h3>MDirectory</h3>
 			</div>
 			<div class="searchBy">
 				<div class="specialization">
-					<img src="images/mike.png" alt="Flask">
+					<img src="images/profile.png" alt="Flask">
 					<h2>Search by Specialization</h2>
 				</div>
-				<div class="symptoms">
-					<img src="images/mike.png" alt="Pills">
+				<div class="symptoms" onclick="triggerScreen('humanScreen')">
+					<img src="images/stethoscope.png" alt="Pills">
 					<h2>Search by Symptoms</h2>
 				</div>
 			</div>
 			<div class="recommendedBar">
-				<h3>Recommended Doctors Near You...</h3>
+				<h3 id="specialistText">Recommended Doctors Near You...</h3>
 			</div>
-			<div class="recommendation">
+      <p style="color:red" id="theStinky">You need to be logged in to set appointments!</p>
+			<div style="opacity:0.5" class="recommendation" onclick="triggerScreen('requestScreen')" id="lightUpTheWorld">
 				<div>
 					<div>
-						<h1>Doctor 1</h1>
-						<img src="images/mike.png" alt="Crown">
-					</div>
-					<h2>Specialization 1</h2>
-					<hp>Description 1</hp>
+						<h1>TAN, Elden Riguel C.</h1>
+            <img src="images/premium.png" alt="MDPremium">
+				</div>
+					<h2>Cardiologist</h2>
+					<p>0933-373-8153, ReMD Clinic, 18# Ave. Southbound</p>
 				</div>
 			</div>
-			<div class="recommendation">
+			<div style="opacity:0.5" class="recommendation" id="goAway">
 				<div>
-					<h1>Doctor 2</h1>
-					<h2>Specialization 2</h2>
-					<hp>Description 2</hp>
+					<h1>LIBATIQUE, Lance C.</h1>
+					<h2>Dermatologist</h2>
+					<p>0917-855-1233, Love Ko Si Doc Clinic, Life Real in Us Among</p>
 				</div>
 			</div>
 		</div>
 		<div class="doctorScreen" id="doctorScreen">
-
+			<div class="smallSection logoBar bg_tealsteel">
+				<img src="images/logo.png" alt="MDLogo">
+				<h3>MDirectory</h3>
+				<img src="images/profile.png" alt="Profile">
+			</div>
+			<div class="appointmentBar">
+				<h3 id="specialistText">Your Appointments</h3>
+			</div>
+			<div class="appointment" onclick="appointment(this)">
+				<div>
+					<div>
+						<h1>Patient: PANOPIO, Bea S.</h1>
+					</div>
+					<h2>Date: 3:00 pm today</h2>
+					<p>Symptoms: heart palpatations</p>
+				</div>
+			</div>
 		</div>
 		<div class="registrationScreen" id="registrationScreen">
 			<div class="smallSection logoBar bg_tealsteel">
 				<img src="images/logo.png" alt="MDLogo">
 				<h3>MDirectory</h3>
+				<img src="images/profile.png" alt="Profile">
 			</div>
       <div class="smallSection loginOptions">
         <div>
-          <h3 class="clickable">Login as Patient</h3>
+          <h3 class="clickable" onclick="triggerLoginInfo('loginInfoPatient')">Login as Patient</h3>
         </div>
         <div>
-          <h3 class="clickable">Login as Doctor</h3>
+          <h3 class="clickable" onclick="triggerLoginInfo('loginInfoDoctor')">Login as Doctor</h3>
         </div>
       </div>
-      <div class="loginInfos"> 
+      <div class="loginInfos" id="loginInfos"> 
         <div id="loginInfoPatient">
           <p>USERNAME</p>
-          <input type="text" placeholder="Username">
+          <input type="text" placeholder="Username" id="patient_username">
+          <p>EMAIL</p>
+          <input type="text" placeholder="Email" id="patient_email">
           <p>PASSWORD</p>
-          <input type="password" placeholder="Password">
+          <input type="password" placeholder="Password" id="patient_password">
           <div class="extraInfo">
             <p>FIRST NAME</p>
-            <input type="text" placeholder="First Name">
+            <input type="text" placeholder="First Name"   id="patient_firstName">
+            <p>MIDDLE NAME</p>
+            <input type="text" placeholder="Middle Name" id="patient_middleName">
             <p>LAST NAME</p>
-            <input type="text" placeholder="Last Name">  
-            <p>EMAIL</p>
-            <input type="text" placeholder="Email">
+            <input type="text" placeholder="Last Name" id="patient_lastName">  
           </div>
         </div>
         <div class="hidden" id="loginInfoDoctor">
           <p>USERNAME</p>
-          <input type="text" placeholder="Username">
-          <p>PASSWORD</p>
-          <input type="password" placeholder="Password">
-          <p>FIRST NAME</p>
-          <input type="text" placeholder="First Name">
-          <p>LAST NAME</p>
-          <input type="text" placeholder="Last Name">
-          <p>SPECIALIZATION</p>
-          <input type="text" placeholder="Specialization">
-          <p>HOSPITAL/CLINIC ADDRESS</p>
-          <input type="text" placeholder="Address">
-          <p>HOSPITAL/CLINIC HOTLINE</p>
-          <input type="text" placeholder="Hotline">
+          <input type="text" placeholder="Username" id="doctor_username">
           <p>EMAIL</p>
-          <input type="text" placeholder="Email">
+          <input type="text" placeholder="Email" id="doctor_email">
+          <p>PASSWORD</p>
+          <input type="password" placeholder="Password" id="doctor_password">
+          <div class="extraInfo">
+            <p>FIRST NAME</p>
+            <input type="text" placeholder="First Name" id="doctor_firstName">
+            <p>MIDDLE NAME</p>
+            <input type="text" placeholder="Middle Name" id="doctor_middleName">
+            <p>LAST NAME</p>
+            <input type="text" placeholder="Last Name" id="doctor_lastName">
+            <p>SPECIALIZATION</p>
+            <input type="text" placeholder="Specialization" id="doctor_specialization">
+            <p>HOSPITAL/CLINIC ADDRESS</p>
+            <input type="text" placeholder="Address" id="doctor_address">
+            <p>HOSPITAL/CLINIC HOTLINE</p>
+            <input type="text" placeholder="Hotline" id="doctor_hotline">
+          </div>
+        </div>
+			</div>
+			<div class="loginInfoButtons" id="loginInfoButtons">
+        		<button onclick="login()">Login</button>
+        		<button onclick="attemptRegister()">Register</button>
+    		</div>
+		</div>
+		<div class="requestScreen" id="requestScreen" >
+			<div class="smallSection logoBar bg_tealsteel">
+				<img src="images/logo.png" alt="MDLogo">
+				<h3>MDirectory</h3>
+			</div>
+      <div style="padding:10px;">
+        <h3>Book an appointment!</h3>
+        <div>
+          <div>
+            <h2 style="display:inline-block">TAN, Elden Riguel C.</h2>
+            <img src="images/premium.png" alt="MDPremium" style="width:30px;display:inline-block">
+          </div>
+          <h3>Cardiologist</h3>
+          <p>0933-373-8153, ReMD Clinic, 18# Ave. Southbound</p>
+        </div>
+        <div>
+          <p>When are you available to set a consultation with Elden Riguel?</p>
+          <p class="label">Month</p>
+          <input type="text" placeholder="Month">
+          <p class="label">Day</p>
+          <input type="text" placeholder="Day">
+          <p class="label">Hour (Military)</p>
+          <input type="text" placeholder="Hour">
+          <p>The consultation will last: 2 hours</p>
         </div>
       </div>
-      <div class="loginInfoButtons">
-        <button onclick="attemptLogin()">Login</button>
-        <button onclick="attemptRegister()">Register</button>
-      </div>
 		</div>
-		<div class="requestScreen" id="requestScreen">
-
+		<div class="humanScreen" id="humanScreen">
+			<div class="smallSection logoBar bg_tealsteel">
+				<img src="images/logo.png" alt="MDLogo">
+				<h3>MDirectory</h3>
+			</div>
+			<div style="display:relative">
+				<div onclick="showElem('listOfSymptoms')">
+					<img src="images/humanBody.png" alt="BlackPerson" style="height:80%;left:-120px;position:relative">
+				</div>
+			  <div style="position:absolute;top:100px;right:10px;left:50px" class="textParent hidden" id="listOfSymptoms">
+          <h1>Chest</h1>
+         			<p>Are you feeling anything around your chest?</p>
+		        	<select name="cars" id="cars">
+			            <option>dry coughs</option>
+			            <option>wet coughs</option>
+			            <option>bloody cough</option>
+			            <option>hoarse</option>
+			            <option>hard to breathe</option>
+			            <option>heart palpitations</option>
+              </select>
+              <button onclick="displayDoctor()">Submit</button>
+    			</div>
+    		</div>
+		</div>
+		<div class="panicScreen" id="panicScreen">
+			<div class="smallSection logoBar bg_tealsteel">
+				<img src="images/logo.png" alt="MDLogo">
+				<h3>MDirectory</h3>
+			</div>
+			<div style="display:flex;justify-content:center">
+				<img src="images/alert.png" alt="BigAlarm">
+			</div>
+			<div>
+				<div style="background-color:var(--tealsteel);padding:30px;text-align:center;">
+					<p style="color:white">Emergency help is on the way. Stay put and remain calm.</p>
+				</div>
+			</div>
+			<div>
+				<div style="display:flex;justify-content:center;margin:20px;">
+					<button onClick="triggerScreen('startScreen')">Cancel</button>
+				</div>
+			</div>
 		</div>
 	</div>
 </body>

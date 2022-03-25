@@ -1,4 +1,7 @@
+
+
 const database = new Database();
+var currentLoginType;
 
 database.patients.push(new PatientAccount({
 	username: "MCheddarson",
@@ -23,6 +26,7 @@ database.patients.push(new PatientAccount({
 
 window.onload = function() { 
   triggerScreen("startScreen"); 
+  currentLoginType = document.getElementById("loginInfoPatient");
 }
 
 function triggerScreen(screenId) {
@@ -37,10 +41,10 @@ function triggerScreen(screenId) {
 	document.getElementById(screenId).style.pointerEvents = "all";
 }
 
-var currentLoginType = document.getElementById("loginInfoPatient");
 function triggerLoginInfo(loginInfo) {
-  //i feel like we can merge this with triggerScreen since its exactly the same
-	const loginInfos = document.getElementById("screenParent").children;
+	// i feel like we can merge this with triggerScreen since its exactly the same
+	const loginInfos = document.getElementById("loginInfos").children;
+  currentLoginType = document.getElementById(loginInfo);
 
 	for (let i = 0; i < loginInfos.length; i++) {
 		loginInfos[i].style.opacity = 0;
@@ -50,11 +54,50 @@ function triggerLoginInfo(loginInfo) {
 	document.getElementById(loginInfo).style.opacity = 1;
 	document.getElementById(loginInfo).style.pointerEvents = "all";
 }
+function showElem(id) {
+	const elem = document.getElementById(id);
+	elem.style.opacity = "1";
+	elem.style.pointerEvents = "all";
+}
+function displayDoctor() {
+  triggerScreen("homeScreen");
+  document.getElementById("specialistText").innerHTML = "You might need to see a: Cardiologist!";
+  document.getElementById("goAway").style.display = "none";
+  document.getElementById("lightUpTheWorld").style.opacity = "1";
+}
 function login() {
-  //i am seriously too lazy to implement input sanitization so just don't make a typo during the prototyping vid ty ~~~lance
-
-  
+  document.getElementById("theStinky").style.display = "none";
+	triggerScreen(currentLoginType.id === "loginInfoDoctor" ? "doctorScreen" : "homeScreen");
+  document.getElementById("lightUpTheWorld").style.opacity = "1";
+  document.getElementById("goAway").style.opacity = "1";
 }
 function attemptRegister() {
-  
+	// toggle
+	var hiddenFields = currentLoginType.children;
+	hiddenFields = hiddenFields[hiddenFields.length - 1];
+
+	// const fields = ["email", "password", "firstName", "lastName"];
+	
+	if (hiddenFields.className == "extraInfo toggled") {
+		/*
+		if (currentLoginType.id == "loginInfoDoctor") {
+			var prefix = "doctor";
+			fields.concat(["specialization", "address", "hotline"]);
+		} else {
+			var prefix = "patient";
+		}
+	
+		const options = {
+			name: {
+				given: document.getElementById(`${prefix}_firstName`),
+				given: document.getElementById(`${prefix}_middleName`),
+				sur: document.getElementById(`${prefix}_lasName`),
+			},
+		};
+		*/
+	
+	} else {
+		hiddenFields.className = "extraInfo toggled";
+		hiddenFields.style.height = "auto";
+	}
 }
